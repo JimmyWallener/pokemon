@@ -1,9 +1,19 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     font-family: 'Roboto Slab', serif;
     background-image: url('../img/pokemon-1577763_1920.jpg');
     text-align: center;
-    color: #000000;    
-    
+    color: #000000;        
+}
+
+h1{
+    padding-bottom: 15px;
+    padding-top: 10px;
 }
 
 header {
