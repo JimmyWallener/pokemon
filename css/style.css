@@ -12,6 +12,7 @@ body {
     height: 450px;
     margin: auto;
     background: coral;
+    border: 2px black solid;
     border-radius: 15px;
-    border: 2 px black solid;
+    
 }
