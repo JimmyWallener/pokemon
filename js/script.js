@@ -6,54 +6,58 @@ $(function () {
 
     //Autocomplete  
 
-    $.getJSON(pokemonURL).done(function (data) {
-        $.each(data.pokemon_species, function (index, pokemon) {
-            let name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+    // Eventlisteners go here
 
-            $("#getmyPoke").click(function (event) {
-                event.preventDefault();
+    $(document).ready(function () {
+        $.getJSON(pokemonURL).done(function (data) {
+            $.each(data.pokemon_species, function (index, pokemon) {
+                let name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
-                $.getJSON(pokemonByName + pokemon.name).done(function (details) {
-                    let detail = []; // Saves details data in javascript objet (since its a prerequisite for the assignment)
-                    let userInput = $("#Seek").val();
-                    let $pokemonDiv = $("#pokemon-details");
+                $("#getmyPoke").click(function (event) {
+                    event.preventDefault();
 
-
-
-                    if (userInput.toLowerCase() == name.toLowerCase()) {
+                    $.getJSON(pokemonByName + pokemon.name).done(function (details) {
+                        let userInput = $("#Seek").val();
+                        if (userInput.toLowerCase() == name.toLowerCase()) {
+                            getPokemon(details);
+                        }
+                    })
+                    $("#clear").click(function (event) {
+                        $pokemonDiv = $("#pokemon-details");
                         $pokemonDiv.empty();
                         $("#Seek").val('');
-                        detail = details;
-                        let moves = detail.abilities;
-                        $pokemonDiv.append(`<h2>${name}</h2>`);
-                        //pokemonDiv.append("<img src = ' "+ details.sprites.front_default + "'>")
-                        //pokemonDiv.append("<img src = ' "+ details.sprites.back_default + "'>")
-                        $pokemonDiv.append(`<img src = '${detail.sprites.front_shiny}'>`)
-                        $pokemonDiv.append(`<img src = '${detail.sprites.back_shiny}'>`)
-                        for (let i = 0; i < moves.length; i++) {
-                            let obj = moves[i];
-                            $pokemonDiv.append(`<p>Abilities: ${obj.ability.name}</p>`);
-
-                        }
-                    }
-                })
-                $("#clear").click(function (event) {
-                    $pokemonDiv = $("#pokemon-details");
-                    $pokemonDiv.empty();
-                    $("#Seek").val('');
-                    event.preventDefault();
+                        event.preventDefault();
+                    });
                 });
-            });
 
+            });
+        }).fail(function () {
+            console.log("Request failed");
+        }).always(function () {
+            console.log("Pokemon is Awesome ")
         });
-    }).fail(function () {
-        console.log("Request failed");
-    }).always(function () {
-        console.log("Pokemon is Awesome ")
     });
 });
+// Functions goes here
 
+function getPokemon(details) {
+    let detail = []; // Saves details data in javascript objet (since its a prerequisite for the assignment)
+    let $pokemonDiv = $("#pokemon-details");
 
+    $pokemonDiv.empty();
+    $("#Seek").val('');
+    detail = details;
+    let moves = detail.abilities;
+    $pokemonDiv.append(`<h2>${name}</h2>`);
+    //pokemonDiv.append("<img src = ' "+ details.sprites.front_default + "'>")
+    //pokemonDiv.append("<img src = ' "+ details.sprites.back_default + "'>")
+    $pokemonDiv.append(`<img src = '${detail.sprites.front_shiny}'>`);
+    $pokemonDiv.append(`<img src = '${detail.sprites.back_shiny}'>`);
+    for (let i = 0; i < moves.length; i++) {
+        let obj = moves[i].ability;
+        $pokemonDiv.append(`<p>Abilities: ${obj.name}</p>`);
+    }
+}
 
 
 
