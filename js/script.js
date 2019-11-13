@@ -4,7 +4,6 @@ $(function () {
     const pokemonByName = "https://pokeapi.co/api/v2/pokemon/";
 
 
-    //Autocomplete  
 
     // Eventlisteners go here
 
@@ -12,6 +11,7 @@ $(function () {
         $.getJSON(pokemonURL).done(function (data) {
             $.each(data.pokemon_species, function (index, pokemon) {
                 let name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+                // autocomp(pokemon); <-- callback till autocomplete
 
                 $("#getmyPoke").click(function (event) {
                     event.preventDefault();
@@ -20,6 +20,7 @@ $(function () {
                         let userInput = $("#Seek").val();
                         if (userInput.toLowerCase() == name.toLowerCase()) {
                             getPokemon(details);
+
                         }
                     })
                     $("#clear").click(function (event) {
@@ -58,6 +59,14 @@ function getPokemon(details) {
         $pokemonDiv.append(`<p>Abilities: ${obj.name}</p>`);
     }
 }
-
-
-
+// Autocomplete function - fungerar ej ännu.
+/*
+function autocomp(pokemon) {
+    let auto = [];
+    auto = pokemon;
+    $("#Seek").autocomplete({
+        minlength: 0,
+        source: auto
+    }); console.log(auto);
+}
+*/
