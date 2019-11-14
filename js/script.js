@@ -3,6 +3,21 @@ $(function () {
     const pokemonURL = "https://pokeapi.co/api/v2/generation/1";
     const pokemonByName = "https://pokeapi.co/api/v2/pokemon/";
 
+    //Min lösning till autocomplete- ni får gärna ta bort det om ni hittar bättre eller smidigare lösning
+    var nameArray = [];
+    $.getJSON(pokemonURL, function(data) {
+    $.each(data.pokemon_species, function(index, pokemon) {
+       if ($.inArray(pokemon.name, nameArray) === -1) {
+            nameArray.push(pokemon.name)
+        }
+    })
+    }); 
+        $("#Seek").autocomplete({
+        source: nameArray
+    });
+          
+
+
 
 
     // Eventlisteners go here
