@@ -20,14 +20,14 @@ $(function () {
                         let userInput = $("#Seek").val();
                         if (userInput.toLowerCase() == name.toLowerCase()) {
                             getPokemon(details);
-
                         }
                     })
                     $("#clear").click(function (event) {
+                        event.preventDefault();
                         $pokemonDiv = $("#pokemon-details");
                         $pokemonDiv.empty();
                         $("#Seek").val('');
-                        event.preventDefault();
+
                     });
                 });
 
