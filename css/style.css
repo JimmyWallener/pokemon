@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Roboto Slab', serif;
-    background-image: url('../img/pokemon-1577763_1920.jpg');
+    background-image: url('..//img/pokemon-1577763_1920.jpg');
     text-align: center;
     color: #000000;        
 }
@@ -27,9 +27,7 @@ header {
     border-radius: 5px;
 }
 
-.container {
 
-}
 
 .card{
     width:300px;
@@ -41,9 +39,8 @@ header {
     box-shadow:         3px 3px 5px 6px #ccc;
 }
 
-.search{
+.search {
     width: 300;
-    
 }
 ul > li {
     list-style: none;
