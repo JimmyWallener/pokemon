@@ -30,10 +30,28 @@ $(function () {
                     $.getJSON(pokemonByName + pokemon.name).done(function (details) {
                         $.getJSON(pokemonImage).done(function (image) {
                             let userInput = $("#Seek").val();
-                            console.log(image);
 
                             if (userInput.toLowerCase() == name.toLowerCase()) {
-                                getPokemon(details, image);
+                                let detail = [];
+                                detail = details;
+                                let moves = detail.abilities;
+                                let $pokemonDiv = $("#pokemon-details");
+                                let images = image[pokemon.name];
+
+                                $pokemonDiv.empty();
+
+                                $("#Seek").val('');
+                                $pokemonDiv.append(`<h2>${details.name}</h2>`);
+                                //pokemonDiv.append("</img src = ' "+ details.sprites.front_default + "'>")
+                                //pokemonDiv.append("</img src = ' "+ details.sprites.back_default + "'>")
+                                //$pokemonDiv.append(`<img src = '${detail.sprites.front_shiny}'>`);
+                                //$pokemonDiv.append(`<img src = '${detail.sprites.back_shiny}'>`);
+                                $pokemonDiv.append(`<img src = '${images}'>`);
+                                for (let i = 0; i < moves.length; i++) {
+                                    let obj = moves[i].ability;
+                                    $pokemonDiv.append(`<p>Abilities: ${obj.name}</p>`);
+                                }
+
                             }
                         })
                     })
@@ -54,25 +72,3 @@ $(function () {
         });
     });
 });
-// Functions goes here
-
-function getPokemon(details) {
-    let detail = []; // Saves details data in javascript objet (since its a prerequisite for the assignment)
-    let $pokemonDiv = $("#pokemon-details");
-
-    $pokemonDiv.empty();
-    $("#Seek").val('');
-    detail = details;
-    let moves = detail.abilities;
-
-    $pokemonDiv.append(`<h2>${details.name}</h2>`);
-    //pokemonDiv.append("</img src = ' "+ details.sprites.front_default + "'>")
-    //pokemonDiv.append("</img src = ' "+ details.sprites.back_default + "'>")
-    $pokemonDiv.append(`</img src = '${detail.sprites.front_shiny}'>`);
-    $pokemonDiv.append(`</img src = '${detail.sprites.back_shiny}'>`);
-    for (let i = 0; i < moves.length; i++) {
-        let obj = moves[i].ability;
-        $pokemonDiv.append(`<p>Abilities: ${obj.name}</p>`);
-    }
-}
-

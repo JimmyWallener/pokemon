@@ -32,7 +32,10 @@ header {
     border-radius: 5px;
 }
 
-
+img {
+    width: 150px;
+    height: 200px;
+}
 
 
 .card{
