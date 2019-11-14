@@ -15,12 +15,7 @@ $(function () {
     });
     $("#Seek").autocomplete({
         source: nameArray,
-        autoFocus: true,
-        select: function (event, ui) {
-            event.preventDefault();
-            $("#Seek").val(ui.item.label);
-            return false;
-        }
+        autoFocus: true
     });
 
     // Eventlisteners go here
