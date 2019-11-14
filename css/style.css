@@ -44,5 +44,8 @@ header {
 .search{
     width: 300;
     
-
+}
+ul > li {
+    list-style: none;
+    display:none;
 }
