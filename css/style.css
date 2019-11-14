@@ -2,18 +2,28 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    font-family: 'Roboto Slab', serif;
 }
 
 body {
-    font-family: 'Roboto Slab', serif;
+    
     background-image: url('..//img/pokemon-1577763_1920.jpg');
     text-align: center;
     color: #000000;        
 }
+h2{
+    margin-bottom: 1vh;
+}
 
 h5 {
+    margin-top: 1vh;
     text-align: center;
     font-size:20px;
+}
+
+p {
+    margin-left: 3vw;
+    text-align: left;
 }
 
 h1{
@@ -35,9 +45,14 @@ header {
 img {
     width: 150px;
     height: 200px;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
 }
 
-
+ul > li {
+    list-style: none;
+    display:none;
+}
 .card{
     width:300px;
     height: 450px;
@@ -51,7 +66,8 @@ img {
 .search {
     width: 300;
 }
-ul > li {
-    list-style: none;
-    display:none;
+
+#pokemon-details {
+    justify-content: center;
+    margin-top: 2vh;
 }
