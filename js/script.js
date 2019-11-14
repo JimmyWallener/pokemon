@@ -63,7 +63,7 @@ function getPokemon(details) {
     detail = details;
     let moves = detail.abilities;
 
-    $pokemonDiv.append(`<h2>${details.name}</h2>`);
+    $pokemonDiv.append(`<h2>${details.name}</h2>`);  
     //pokemonDiv.append("<img src = ' "+ details.sprites.front_default + "'>")
     //pokemonDiv.append("<img src = ' "+ details.sprites.back_default + "'>")
     $pokemonDiv.append(`<img src = '${detail.sprites.front_shiny}'>`);
