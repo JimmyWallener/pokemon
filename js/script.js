@@ -16,10 +16,6 @@ $(function () {
         source: nameArray
     });
           
-
-
-
-
     // Eventlisteners go here
 
     $(document).ready(function () {
@@ -33,7 +29,9 @@ $(function () {
 
                     $.getJSON(pokemonByName + pokemon.name).done(function (details) {
                         let userInput = $("#Seek").val();
+
                         if (userInput.toLowerCase() == name.toLowerCase()) {
+                           
                             getPokemon(details);
 
                         }
@@ -59,12 +57,13 @@ $(function () {
 function getPokemon(details) {
     let detail = []; // Saves details data in javascript objet (since its a prerequisite for the assignment)
     let $pokemonDiv = $("#pokemon-details");
-
+    
     $pokemonDiv.empty();
     $("#Seek").val('');
     detail = details;
     let moves = detail.abilities;
-    $pokemonDiv.append(`<h2>${name}</h2>`);
+
+    $pokemonDiv.append(`<h2>${details.name}</h2>`);
     //pokemonDiv.append("<img src = ' "+ details.sprites.front_default + "'>")
     //pokemonDiv.append("<img src = ' "+ details.sprites.back_default + "'>")
     $pokemonDiv.append(`<img src = '${detail.sprites.front_shiny}'>`);
