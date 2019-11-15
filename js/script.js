@@ -26,6 +26,7 @@ $(function () {
                 let name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
                 $("#getmyPoke").click(function (event) {
                     event.preventDefault();
+                    $("h5").hide();
 
                     $.getJSON(pokemonByName + pokemon.name).done(function (details) {
                         $.getJSON(pokemonImage).done(function (image) {
@@ -42,10 +43,7 @@ $(function () {
 
                                 $("#Seek").val('');
                                 $pokemonDiv.append(`<h2>${details.name}</h2>`);
-                                //pokemonDiv.append("</img src = ' "+ details.sprites.front_default + "'>")
-                                //pokemonDiv.append("</img src = ' "+ details.sprites.back_default + "'>")
-                                //$pokemonDiv.append(`<img src = '${detail.sprites.front_shiny}'>`);
-                                //$pokemonDiv.append(`<img src = '${detail.sprites.back_shiny}'>`);
+                               
                                 $pokemonDiv.append(`<img src = '${images}' alt = '${pokemon.name}'>`);
                                 $pokemonDiv.append(`<ul class = 'list-ability'>Abilities:</ul>`)
                                 for (let i = 0; i < moves.length; i++) {
@@ -57,10 +55,12 @@ $(function () {
                         })
                     })
                     $("#clear").click(function (event) {
+                        
                         event.preventDefault();
                         $pokemonDiv = $("#pokemon-details");
                         $pokemonDiv.empty();
                         $("#Seek").val('');
+                        $("h5").show();
 
                     });
                 });
