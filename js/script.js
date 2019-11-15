@@ -46,7 +46,7 @@ $(function () {
                                 //pokemonDiv.append("</img src = ' "+ details.sprites.back_default + "'>")
                                 //$pokemonDiv.append(`<img src = '${detail.sprites.front_shiny}'>`);
                                 //$pokemonDiv.append(`<img src = '${detail.sprites.back_shiny}'>`);
-                                $pokemonDiv.append(`<img src = '${images}'>`);
+                                $pokemonDiv.append(`<img src = '${images}' alt = '${pokemon.name}'>`);
                                 for (let i = 0; i < moves.length; i++) {
                                     let obj = moves[i].ability;
                                     $pokemonDiv.append(`<p>Abilities: ${obj.name}</p>`);
