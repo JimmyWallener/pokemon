@@ -38,12 +38,10 @@ $(function () {
                                 let moves = detail.abilities;
                                 let $pokemonDiv = $("#pokemon-details");
                                 let images = image[pokemon.name];
-
+                                let pokeName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
                                 $pokemonDiv.empty();
-
                                 $("#Seek").val('');
-                                $pokemonDiv.append(`<h2>${details.name}</h2>`);
-                               
+                                $pokemonDiv.append(`<h2>${pokeName}</h2>`);
                                 $pokemonDiv.append(`<img src = '${images}' alt = '${pokemon.name}'>`);
                                 $pokemonDiv.append(`<ul class = 'list-ability'>Abilities:</ul>`)
                                 for (let i = 0; i < moves.length; i++) {
