@@ -49,10 +49,17 @@ img {
     margin-top: 2vh;
     margin-bottom: 3vh;
 }
-
 ul > li {
-    list-style: none;
-    display:none;
+    display: none;
+}
+
+.center > li {
+    text-align: left;
+    margin-left: 3vw;
+}
+.center > ul {
+    text-align: left;
+    margin-left: 2vw;
 }
 
 .card{
@@ -65,16 +72,9 @@ ul > li {
     box-shadow:         3px 3px 5px 6px #ccc;
 }
 
-.list-ability {
-    text-align: left;
-    padding-left:40px;
-}
 
-.list-ability > li {
-    text-align: left;
-}
-
-#pokemon-details {
-    justify-content: center;
+.center {
+    margin: 0 auto;
+    width: 75%;
     margin-top: 2vh;
 }

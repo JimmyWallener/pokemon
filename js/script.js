@@ -47,11 +47,11 @@ $(function () {
                                 //$pokemonDiv.append(`<img src = '${detail.sprites.front_shiny}'>`);
                                 //$pokemonDiv.append(`<img src = '${detail.sprites.back_shiny}'>`);
                                 $pokemonDiv.append(`<img src = '${images}' alt = '${pokemon.name}'>`);
-                                $pokemonDiv.append(`<ul class = 'list-ability'>Abilities</ul>`)
+                                $pokemonDiv.append(`<ul class = 'list-ability'>Abilities:</ul>`)
                                 for (let i = 0; i < moves.length; i++) {
                                     let obj = moves[i].ability;
                                     $pokemonDiv.append(`<li> ${obj.name}</li>`);
-                                } 
+                                }
 
                             }
                         })
