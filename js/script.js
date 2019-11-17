@@ -4,7 +4,7 @@ $(function () {
     const pokemonByName = "https://pokeapi.co/api/v2/pokemon/";
     const pokemonImage = "data/data.json"
 
-    //Min lösning till autocomplete- ni får gärna ta bort det om ni hittar bättre eller smidigare lösning
+
     var nameArray = [];
     $.getJSON(pokemonURL, function (data) {
         $.each(data.pokemon_species, function (index, pokemon) {
@@ -15,7 +15,8 @@ $(function () {
     });
     $("#Seek").autocomplete({
         source: nameArray,
-        autoFocus: true
+        minlength: 3,
+        delay: 500
     });
 
     // Eventlisteners go here
@@ -53,7 +54,7 @@ $(function () {
                         })
                     })
                     $("#clear").click(function (event) {
-                        
+
                         event.preventDefault();
                         $pokemonDiv = $("#pokemon-details");
                         $pokemonDiv.empty();
