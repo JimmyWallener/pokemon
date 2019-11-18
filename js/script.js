@@ -60,6 +60,7 @@ $(function () {
                         $pokemonDiv.empty();
                         $("#Seek").val('');
                         $("h5").show();
+                        $(".ui-helper-hidden-accessible").hide();
 
                     });
                 });
